@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 /*
 
 In England the currency is made up of pound, £, and pence, p, and there are eight coins in general circulation:
@@ -54,8 +52,4 @@ func coinSum(coins []int, target int) int {
 			}
 		}
 		return matrix[len(matrix)-1][len(matrix[0])-1]
-}
-
-func main() {
-	fmt.Println(coinSum([]int{1,2,5}, 5))
 }
