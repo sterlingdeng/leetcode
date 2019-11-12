@@ -1,9 +1,5 @@
 package levenshtein_distance
 
-import (
-	"math"
-)
-
 /*
 
 Write a function that takes in two strings and returns the minimum number of edit operations that need to be performed on the first string to obtain the second string.
@@ -40,7 +36,14 @@ func LevenshteinDistance(a, b string) int {
 				if matrix[r-1][c] == matrix[r][c-1] {
 					matrix[r][c] = matrix[r-1][c]
 				} else {
-					matrix[r][c] = int(math.Min(float64(matrix[r-1][c]+1), float64(matrix[r][c-1]+1)))
+					min := matrix[r-1][c-1]
+					if matrix[r-1][c] < matrix[r-1][c-1] {
+						min = matrix[r-1][c]
+					}
+					if matrix[r][c-1] < min {
+						min = matrix[r][c-1]
+					}
+					matrix[r][c] = min + 1
 				}
 			}
 		}
