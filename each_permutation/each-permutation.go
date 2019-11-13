@@ -18,10 +18,22 @@ eachPermutation([1, 2, 3], function(perm) {
 [ 3, 2, 1 ]
 */
 
-func eachPermutation(slice []interface{}, cb func(interface{})) {
-
+func EachPermutation(slice []int) [][]int {
+	return helper([]int{}, slice, [][]int{})
 }
 
-func heapPermutation(slice []interface{}, size, n int) {
 
+func helper(currPerm, avail []int, result [][]int) [][]int {
+	if len(avail) == 0 {
+		return append(result, currPerm)
+	}
+	for i, val := range avail {
+		var newAvail []int
+		newAvail = append(newAvail, avail[:i]...)
+		newAvail = append(newAvail, avail[i+1:]...)
+		newCurrPerm := append(currPerm, val)
+		result = helper(newCurrPerm, newAvail, result)
+	}
+	return result
 }
+
