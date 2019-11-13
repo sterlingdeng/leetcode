@@ -114,23 +114,6 @@ func makeAdjList(wordList []string) (map[string][]string, map[string][]string) {
 		wordWild[word] = withWildcards
 	}
 	return wordWild, wildWord
-
-	//aj := make(map[string][]string)
-	//for i := 0; i < len(wordList); i++ {
-	//	currWord := wordList[i]
-	//	if _, has := aj[currWord]; !has {
-	//		aj[currWord] = []string{}
-	//	}
-	//	for j := 0; j < len(wordList); j++ {
-	//		if i == j {
-	//			continue
-	//		}
-	//		if offByLessThanOne(currWord, wordList[j]) {
-	//			aj[currWord] = append(aj[currWord], wordList[j])
-	//		}
-	//	}
-	//}
-	//return aj
 }
 
 func offByLessThanOne(s1, s2 string) bool {
