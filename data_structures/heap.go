@@ -18,6 +18,10 @@ func NewHeap(comparator func(a, b int) bool) Heap {
 	}
 }
 
+func (h *Heap) Length() int {
+	return len(h.heap)
+}
+
 func (h *Heap) Peek() (int, error) {
 	if len(h.heap) == 0 {
 		return -1, ErrHeapEmpty
