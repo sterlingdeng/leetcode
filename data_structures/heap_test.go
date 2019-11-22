@@ -13,9 +13,7 @@ var MinHeap *Heap
 //var MaxHeap Heap
 
 func init() {
-	h := NewHeap(MinHeapFn)
-	MinHeap = &h
-	//MaxHeap = NewHeap(MAX_HEAP_FN)
+	MinHeap = NewHeap(MinHeapFn)
 }
 
 func TestHeap_Add(t *testing.T) {
@@ -64,8 +62,7 @@ func TestHeap_Add(t *testing.T) {
 }
 
 func TestHeap_Remove(t *testing.T) {
-	h := NewHeap(MaxHeapFn)
-	maxHeap := &h
+	maxHeap := NewHeap(MaxHeapFn)
 	maxHeap.Add(1)
 	if peeked, _ := maxHeap.Peek(); peeked != 1 {
 		t.Errorf("Max heap peek should be 1, but got %d", peeked)
@@ -86,5 +83,12 @@ func TestHeap_Remove(t *testing.T) {
 
 	if peeked, _ := maxHeap.Peek(); peeked != 4 {
 		t.Errorf("Max heap peek should be 4, but got %d", peeked)
+	}
+	if removed, _ := maxHeap.Remove(); removed != 4 {
+		t.Errorf("Max heap removed should be 4, but got %d", removed)
+	}
+
+	if peeked, _ := maxHeap.Peek(); peeked != 1 {
+		t.Errorf("Max heap peek should be 1, but got %d", peeked)
 	}
 }

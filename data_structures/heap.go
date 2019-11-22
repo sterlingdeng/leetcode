@@ -12,8 +12,8 @@ type Heap struct {
 	comparator func(a, b int) bool
 }
 
-func NewHeap(comparator func(a, b int) bool) Heap {
-	return Heap{
+func NewHeap(comparator func(a, b int) bool) *Heap {
+	return &Heap{
 		comparator: comparator,
 	}
 }
