@@ -18,6 +18,10 @@ func NewHeap(comparator func(a, b int) bool) *Heap {
 	}
 }
 
+func (h *Heap) IsEmpty() bool {
+	return len(h.heap) == 0
+}
+
 func (h *Heap) Length() int {
 	return len(h.heap)
 }
