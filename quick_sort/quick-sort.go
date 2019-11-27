@@ -22,6 +22,7 @@ func partition(in []int, low, high int) int {
 	pId := low
 	for ptr < high {
 		if in[ptr] < pivotVal {
+			// swap
 			t := in[ptr]
 			in[ptr] = in[pId]
 			in[pId] = t
