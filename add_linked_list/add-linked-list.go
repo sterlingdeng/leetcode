@@ -1,4 +1,4 @@
-package hack_hour
+package add_linked_list
 
 /* You have two numbers represented by linked lists. Each node contains a single digit. The digits
  * are stored in reverse order, such that the 1's digit is at the head of the list. Write
@@ -20,5 +20,46 @@ type node struct {
 }
 
 func addLinkedList(l1, l2 *node) *node {
-	return nil
+	var trailingl1 *node
+	head := l1
+	carry := 0
+
+	for l1 != nil && l2 != nil {
+		sum := l1.value + l2.value + carry
+		if sum < 10 {
+			l1.value = sum
+		} else {
+			l1.value = sum % 10
+			carry = (sum - (sum % 10)) / 10
+		}
+		trailingl1 = l1
+		l1 = l1.next
+		l2 = l2.next
+	}
+
+	if carry != 0 {
+		if l1 == nil && l2 == nil {
+			trailingl1 = &node{
+				value: carry,
+				next:  nil,
+			}
+		} else if l1 != nil {
+			l1.value += carry
+		} else if l2 != nil {
+			l2.value += carry
+		}
+	}
+
+	if l2 == nil {
+		return head
+	}
+
+	for l2 != nil {
+		l1 = trailingl1
+		l1.next = l2
+		l1 = l1.next
+		l2 = l2.next
+	}
+
+	return head
 }

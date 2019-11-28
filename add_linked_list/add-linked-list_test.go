@@ -1,4 +1,4 @@
-package hack_hour
+package add_linked_list
 
 import (
 	"reflect"
