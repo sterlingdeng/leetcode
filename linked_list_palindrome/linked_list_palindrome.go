@@ -1,12 +1,14 @@
-package main
+package linked_list_palindrome
 
 import (
-	"fmt"
 	. "hack_hour/data_structures"
 	. "hack_hour/reverse_linked_list"
 )
 
 func isLinkedListPalindrome(l *Node) bool {
+	if l == nil {
+		return true
+	}
 	// get to the half way point first
 	slow := l
 	fast := l
@@ -27,21 +29,3 @@ func isLinkedListPalindrome(l *Node) bool {
 	}
 	return true
 }
-
-func main() {
-	n := &Node{
-		Value: 1,
-		Next:  &Node{
-			Value: 2,
-			Next:  &Node{
-				Value: 2,
-				Next:  &Node{
-					Value: 1,
-					Next:  nil,
-				},
-			},
-		},
-	}
-	fmt.Println(isLinkedListPalindrome(n))
-}
-
