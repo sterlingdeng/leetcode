@@ -22,7 +22,11 @@ describe("quicksort", () => {
   testCases.forEach(testCase => {
     it(testCase.name, () => {
       const got = quickSort(testCase.in);
-      assert.deepEqual(got, testCase.expect, "did not sort");
+      assert.deepEqual(
+        got,
+        testCase.expect,
+        `did not sort, got ${got}, but expected ${testCase.expect}`
+      );
     });
   });
 });
