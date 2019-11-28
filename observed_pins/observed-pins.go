@@ -56,7 +56,6 @@ var adjList = map[rune][]rune{
 
 func getPins(observed string) []string {
 	var combination []rune
-	//var output []string
 	return helper(observed, combination, 0)
 }
 
