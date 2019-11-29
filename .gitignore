@@ -1,3 +1,4 @@
 ignore
 .idea
 node_modules
+*.xml
